@@ -51,8 +51,7 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content;
-            center;
+            justify-content: center;
             padding: 2rem;
         }
         .slide {
@@ -104,6 +103,20 @@
             font-size: 1.05rem;
             border-radius: 0 6px 6px 0;
         }
+        .vignette-box {
+            background: rgba(106, 63, 146, 0.15);
+            border: 1px solid var(--accent-interpersonal);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-top: 1.2rem;
+        }
+        .vignette-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.4rem;
+        }
         .img-container {
             margin-top: 1.5rem;
             text-align: center;
@@ -154,17 +167,21 @@
         <!-- Division I -->
         <div class="slide active">
             <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
-            <h2>Slide 1: SFL-Native Language Modelling Abstract</h2>
-            <p><strong>Systemic Functional Linguistics (SFL) Native Language Modelling</strong> replaces conventional discrete subword tokenization with a continuous computational framework grounded in M.A.K. Halliday's socio-semiotic theory.</p>
-            <p>Instead of mapping text into arbitrary probability distributions over vocabulary lists, language is structured across continuous register and metafunctional dimensions.</p>
+            <h2>Slide 1: SFL-Native Language Modelling Framework</h2>
+            <p><strong>Systemic Functional Linguistics (SFL) Native Language Modelling</strong> parameterizes linguistic sequence dynamics through a continuous computational substrate grounded in M.A.K. Halliday's socio-semiotic theory.</p>
+            <p>The architecture models language across multidimensional semantic strata and register variables within a structured semiotic manifold, tracking meaning updates as continuous state trajectories.</p>
+            <div class="vignette-box">
+                <div class="vignette-title">Tier 2 Read-Aloud Vignette (Standard PhD Register)</div>
+                <p style="margin-bottom:0; font-style:italic;">"This research establishes an architectural departure from standard large language models. Rather than operating over discrete token sequences through statistical probability matrices, SFL-NN formalises language generation and analysis as continuous transformations across stratified semiotic strata, treating Systemic Functional Linguistics as the constitutive computational driver of the network topology."</p>
+            </div>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
             <h2>Slide 2: The 3x3 Semiotic Matrix & 9D State Vector</h2>
-            <p>Meaning state at clause boundary <em>t</em> is parameterized by a 3x3 semiotic matrix <strong>M</strong><sub>t</sub> across Register Variables and Discourse Metafunctions:</p>
+            <p>Meaning state at clause boundary <em>t</em> is defined by a 3x3 semiotic matrix <strong>M</strong><sub>t</sub> across Register Variables and Discourse Metafunctions:</p>
             <div class="math-block">z_t = π(M_t) = [m_FL,ID, m_FL,IP, m_FL,TX, m_TN,ID, m_TN,IP, m_TN,TX, m_MD,ID, m_MD,IP, m_MD,TX]^T ∈ ℝ⁹</div>
-            <p>Row-major unrolling projects <strong>M</strong><sub>t</sub> directly into continuous 9D state space <strong>z</strong><sub>t</sub>.</p>
+            <p>Row-major projection maps <strong>M</strong><sub>t</sub> directly into continuous 9D state space <strong>z</strong><sub>t</sub>.</p>
             <div class="img-container">
                 <img src="semiotic_grid_9d_unrolling.png" alt="Unrolled 3x3 Semiotic Grid">
             </div>
@@ -173,63 +190,63 @@
         <div class="slide">
             <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
             <h2>Slide 3: Standardized 2-Letter Subscript Notation</h2>
-            <p>To eliminate architectural ambiguity across tensor pipelines, the model adopts standardized two-letter subscripts:</p>
+            <p>The system specifies tensor coordinates using standardized two-letter subscripts:</p>
             <ul>
                 <li><strong>Register Variables (R):</strong> FL (Field), TN (Tenor), MD (Mode)</li>
                 <li><strong>Discourse Metafunctions (K):</strong> ID (Ideational), IP (Interpersonal), TX (Textual)</li>
             </ul>
-            <p>Every scalar state <em>m</em><sub>R,K</sub> specifies an explicit socio-semiotic coordinate.</p>
+            <p>Each scalar coordinate <em>m</em><sub>R,K</sub> specifies an explicit socio-semiotic state value within the 9D vector.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
             <h2>Slide 4: UAM CorpusTool Feature Ingestion</h2>
-            <p>Empirical state initialization ingests structured linguistic annotations from UAM CorpusTool XML exports.</p>
-            <p>Systemic feature selections (e.g., Process Type, Mood, Theme) map via linear normalization into bounded continuous scalar intervals.</p>
+            <p>State initialization ingests structured linguistic annotations from UAM CorpusTool XML exports.</p>
+            <p>Systemic feature selections (Process Type, Mood, Theme) map via linear normalization into bounded continuous scalar intervals within the 3x3 matrix.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
             <h2>Slide 5: Clause Step Boundaries & Intake Pipeline</h2>
-            <p>Text intake segments input streams exclusively at structural clause boundaries rather than arbitrary token counts.</p>
-            <p>Each clause transition produces a discrete trajectory step <em>t</em>, forming a continuous sequence of 9D state points.</p>
+            <p>Text intake segments input streams at structural clause boundaries.</p>
+            <p>Each clause transition defines a discrete trajectory step <em>t</em>, forming a continuous sequence of 9D state points across the semiotic manifold.</p>
         </div>
 
         <!-- Division II -->
         <div class="slide">
             <span class="division-tag">Division II: Transformer Trajectory Engine</span>
             <h2>Slide 6: First-Difference Meaning Deltas</h2>
-            <p>The transition backbone models first-difference state deltas rather than static absolute positions:</p>
+            <p>The transition engine models first-difference state deltas rather than static frames:</p>
             <div class="math-block">Δz_t = z_t - z_{t-1} ∈ ℝ⁹</div>
-            <p>Training on delta vectors ensures translation invariance across the semiotic manifold.</p>
+            <p>Delta vector dynamics enforce translation invariance across the semiotic manifold.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division II: Transformer Trajectory Engine</span>
             <h2>Slide 7: Linear State Adapter Matrix</h2>
-            <p>A linear adapter matrix <strong>W</strong><sub>adapt</sub> ∈ ℝ<sup>72×9</sup> projects continuous 9D state deltas into the hidden Transformer dimension <em>d</em><sub>model</sub> = 72:</p>
+            <p>A linear adapter matrix <strong>W</strong><sub>adapt</sub> ∈ ℝ<sup>72×9</sup> projects continuous 9D state deltas into the hidden dimension <em>d</em><sub>model</sub> = 72:</p>
             <div class="math-block">h_t = LayerNorm(W_adapt · Δz_t)</div>
-            <p>This provides full rank projection without bottleneck information loss.</p>
+            <p>The transformation maintains full rank projection across state channels.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division II: Transformer Trajectory Engine</span>
             <h2>Slide 8: Autoregressive Transition Backbone</h2>
-            <p>The sequence model <em>f</em><sub>θ</sub> operates autoregressively over state deltas, predicting next-step transitions Δ<strong>ẑ</strong><sub>t+1</sub> without token vocabulary heads or cross-entropy loss.</p>
+            <p>The sequence model <em>f</em><sub>θ</sub> operates autoregressively over state deltas, predicting next-step transitions Δ<strong>ẑ</strong><sub>t+1</sub> through continuous 9D trajectory projection.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division II: Transformer Trajectory Engine</span>
             <h2>Slide 9: Trajectory Loss Objective</h2>
-            <p>Training updates optimize continuous Mean Squared Error (MSE) over state trajectories:</p>
+            <p>Optimization evaluates continuous Mean Squared Error (MSE) over state trajectories:</p>
             <div class="math-block">L_Δ = (1 / (B · T · 9)) Σ ||Δẑ_i,j - Δz_i,j||₂²</div>
-            <p>Direct trajectory loss eliminates the softmax bottleneck inherent to standard LLMs.</p>
+            <p>The objective computes precise geometric error across continuous state paths.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division II: Transformer Trajectory Engine</span>
             <h2>Slide 10: Optimization & Gradient Dynamics</h2>
-            <p>Forward-backward passes over 500 empirical records confirm active gradient propagation with summed norm ||∇<sub>θ</sub> L<sub>Δ</sub>|| = 10.4923, achieving a single-step loss reduction of 36.9%.</p>
+            <p>Forward-backward execution over 500 empirical records verifies active gradient propagation with summed norm ||∇<sub>θ</sub> L<sub>Δ</sub>|| = 10.4923 and single-step loss reduction of 36.9%.</p>
         </div>
 
         <!-- Division III -->
@@ -237,13 +254,13 @@
             <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
             <h2>Slide 11: Initial State Anchoring & Manifold Conditions</h2>
             <p>Trajectories originate from an initial state anchor <strong>z</strong><sub>0</sub> representing contextual register baseline conditions.</p>
-            <p>All subsequent states are integrated via <strong>z</strong><sub>t</sub> = <strong>z</strong><sub>0</sub> + Σ Δ<strong>z</strong><sub>k</sub>.</p>
+            <p>All subsequent states integrate via <strong>z</strong><sub>t</sub> = <strong>z</strong><sub>0</sub> + Σ Δ<strong>z</strong><sub>k</sub>.</p>
         </div>
 
         <div class="slide">
             <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
             <h2>Slide 12: Riemannian Trajectory Geometry</h2>
-            <p>Path geometry is evaluated via step displacement δ<sub>t</sub> = ||Δ<strong>z</strong><sub>t</sub>||₂ and trajectory angular curvature κ<sub>t</sub> = 1.5305 rad (87.69°).</p>
+            <p>Path geometry is defined by step displacement δ<sub>t</sub> = ||Δ<strong>z</strong><sub>t</sub>||₂ and trajectory angular curvature κ<sub>t</sub> = 1.5305 rad (87.69°).</p>
             <div class="img-container">
                 <img src="riemannian_trajectory_geometry.png" alt="Riemannian Trajectory Geometry">
             </div>
@@ -252,7 +269,7 @@
         <div class="slide">
             <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
             <h2>Slide 13: 3-Head Metafunctional Attention & O(1) Memory</h2>
-            <p>Attention splits into 3 parallel heads (Ideational, Interpersonal, Textual). Keys and values clear instantly post-pass, enforcing an 𝒪(1) VRAM allocation boundary.</p>
+            <p>Attention partitions into 3 parallel heads (Ideational, Interpersonal, Textual). Keys and values release immediately post-pass, enforcing an 𝒪(1) VRAM allocation boundary.</p>
             <div class="img-container">
                 <img src="semiotic_attention_memory_lifecycle.png" alt="Attention Memory Lifecycle">
             </div>
@@ -268,7 +285,7 @@
         <div class="slide">
             <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
             <h2>Slide 15: Co-Equal Multilingual Realisation</h2>
-            <p>Because trajectory states represent pure language-agnostic meaning deltas, identical terminal vectors project co-equally into English, Spanish, and French clause targets without translation intermediaries.</p>
+            <p>Because trajectory states represent pure language-agnostic meaning deltas, identical terminal vectors project co-equally into English, Spanish, and French clause targets.</p>
         </div>
 
         <div class="slide">
