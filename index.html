@@ -1,1 +1,322 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>SFL-Native Language Modelling</title></head><body style='background:#020613;color:#E7F1F9;font-family:sans-serif;padding:2rem;'><h1>SFL-Native Language Modelling (SFL-NN)</h1><p>3x3 Semiotic Matrix Trajectory Engine & Multi-Target Realisation</p><img src='semiotic_grid_9d_unrolling.png' style='max-width:100%;margin-top:1rem;'><br><img src='sfl_loss_and_displacement_plot.png' style='max-width:100%;margin-top:1rem;'></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFL-Native Language Modelling | 16-Slide Research Reader</title>
+    <style>
+        :root {
+            --bg-canvas: #020613;
+            --accent-ideational: #1B6D8A;
+            --accent-interpersonal: #6A3F92;
+            --accent-textual: #2C286B;
+            --accent-gold: #D7B279;
+            --text-main: #E7F1F9;
+            --card-bg: rgba(27, 109, 138, 0.12);
+            --card-border: rgba(215, 178, 121, 0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 1rem 2rem;
+            background: rgba(2, 6, 19, 0.95);
+            border-bottom: 1px solid var(--accent-textual);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 0.05em;
+        }
+        .slide-counter {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background: var(--accent-textual);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content;
+            center;
+            padding: 2rem;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1000px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        .slide.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .division-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--accent-ideational);
+            padding-bottom: 0.5rem;
+        }
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #C5D7E5;
+            margin-bottom: 1rem;
+        }
+        ul { margin-left: 1.5rem; }
+        .math-block {
+            background: rgba(2, 6, 19, 0.8);
+            border-left: 3px solid var(--accent-gold);
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            font-family: "Courier New", Courier, monospace;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .img-container {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .img-container img {
+            max-width: 100%;
+            max-height: 380px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-ideational);
+        }
+        footer {
+            padding: 1rem 2rem;
+            background: rgba(2, 6, 19, 0.95);
+            border-top: 1px solid var(--accent-textual);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-btn {
+            background: var(--accent-ideational);
+            color: var(--text-main);
+            border: 1px solid var(--accent-gold);
+            padding: 0.6rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .nav-btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-canvas);
+        }
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title">SFL-NN Architecture | Research Reader</div>
+        <div class="slide-counter" id="slideCounter">Slide 1 / 16</div>
+    </header>
+
+    <main>
+        <!-- Division I -->
+        <div class="slide active">
+            <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
+            <h2>Slide 1: SFL-Native Language Modelling Abstract</h2>
+            <p><strong>Systemic Functional Linguistics (SFL) Native Language Modelling</strong> replaces conventional discrete subword tokenization with a continuous computational framework grounded in M.A.K. Halliday's socio-semiotic theory.</p>
+            <p>Instead of mapping text into arbitrary probability distributions over vocabulary lists, language is structured across continuous register and metafunctional dimensions.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
+            <h2>Slide 2: The 3x3 Semiotic Matrix & 9D State Vector</h2>
+            <p>Meaning state at clause boundary <em>t</em> is parameterized by a 3x3 semiotic matrix <strong>M</strong><sub>t</sub> across Register Variables and Discourse Metafunctions:</p>
+            <div class="math-block">z_t = π(M_t) = [m_FL,ID, m_FL,IP, m_FL,TX, m_TN,ID, m_TN,IP, m_TN,TX, m_MD,ID, m_MD,IP, m_MD,TX]^T ∈ ℝ⁹</div>
+            <p>Row-major unrolling projects <strong>M</strong><sub>t</sub> directly into continuous 9D state space <strong>z</strong><sub>t</sub>.</p>
+            <div class="img-container">
+                <img src="semiotic_grid_9d_unrolling.png" alt="Unrolled 3x3 Semiotic Grid">
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
+            <h2>Slide 3: Standardized 2-Letter Subscript Notation</h2>
+            <p>To eliminate architectural ambiguity across tensor pipelines, the model adopts standardized two-letter subscripts:</p>
+            <ul>
+                <li><strong>Register Variables (R):</strong> FL (Field), TN (Tenor), MD (Mode)</li>
+                <li><strong>Discourse Metafunctions (K):</strong> ID (Ideational), IP (Interpersonal), TX (Textual)</li>
+            </ul>
+            <p>Every scalar state <em>m</em><sub>R,K</sub> specifies an explicit socio-semiotic coordinate.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
+            <h2>Slide 4: UAM CorpusTool Feature Ingestion</h2>
+            <p>Empirical state initialization ingests structured linguistic annotations from UAM CorpusTool XML exports.</p>
+            <p>Systemic feature selections (e.g., Process Type, Mood, Theme) map via linear normalization into bounded continuous scalar intervals.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division I: Semiotic Intake & Structural Mapping</span>
+            <h2>Slide 5: Clause Step Boundaries & Intake Pipeline</h2>
+            <p>Text intake segments input streams exclusively at structural clause boundaries rather than arbitrary token counts.</p>
+            <p>Each clause transition produces a discrete trajectory step <em>t</em>, forming a continuous sequence of 9D state points.</p>
+        </div>
+
+        <!-- Division II -->
+        <div class="slide">
+            <span class="division-tag">Division II: Transformer Trajectory Engine</span>
+            <h2>Slide 6: First-Difference Meaning Deltas</h2>
+            <p>The transition backbone models first-difference state deltas rather than static absolute positions:</p>
+            <div class="math-block">Δz_t = z_t - z_{t-1} ∈ ℝ⁹</div>
+            <p>Training on delta vectors ensures translation invariance across the semiotic manifold.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division II: Transformer Trajectory Engine</span>
+            <h2>Slide 7: Linear State Adapter Matrix</h2>
+            <p>A linear adapter matrix <strong>W</strong><sub>adapt</sub> ∈ ℝ<sup>72×9</sup> projects continuous 9D state deltas into the hidden Transformer dimension <em>d</em><sub>model</sub> = 72:</p>
+            <div class="math-block">h_t = LayerNorm(W_adapt · Δz_t)</div>
+            <p>This provides full rank projection without bottleneck information loss.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division II: Transformer Trajectory Engine</span>
+            <h2>Slide 8: Autoregressive Transition Backbone</h2>
+            <p>The sequence model <em>f</em><sub>θ</sub> operates autoregressively over state deltas, predicting next-step transitions Δ<strong>ẑ</strong><sub>t+1</sub> without token vocabulary heads or cross-entropy loss.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division II: Transformer Trajectory Engine</span>
+            <h2>Slide 9: Trajectory Loss Objective</h2>
+            <p>Training updates optimize continuous Mean Squared Error (MSE) over state trajectories:</p>
+            <div class="math-block">L_Δ = (1 / (B · T · 9)) Σ ||Δẑ_i,j - Δz_i,j||₂²</div>
+            <p>Direct trajectory loss eliminates the softmax bottleneck inherent to standard LLMs.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division II: Transformer Trajectory Engine</span>
+            <h2>Slide 10: Optimization & Gradient Dynamics</h2>
+            <p>Forward-backward passes over 500 empirical records confirm active gradient propagation with summed norm ||∇<sub>θ</sub> L<sub>Δ</sub>|| = 10.4923, achieving a single-step loss reduction of 36.9%.</p>
+        </div>
+
+        <!-- Division III -->
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 11: Initial State Anchoring & Manifold Conditions</h2>
+            <p>Trajectories originate from an initial state anchor <strong>z</strong><sub>0</sub> representing contextual register baseline conditions.</p>
+            <p>All subsequent states are integrated via <strong>z</strong><sub>t</sub> = <strong>z</strong><sub>0</sub> + Σ Δ<strong>z</strong><sub>k</sub>.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 12: Riemannian Trajectory Geometry</h2>
+            <p>Path geometry is evaluated via step displacement δ<sub>t</sub> = ||Δ<strong>z</strong><sub>t</sub>||₂ and trajectory angular curvature κ<sub>t</sub> = 1.5305 rad (87.69°).</p>
+            <div class="img-container">
+                <img src="riemannian_trajectory_geometry.png" alt="Riemannian Trajectory Geometry">
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 13: 3-Head Metafunctional Attention & O(1) Memory</h2>
+            <p>Attention splits into 3 parallel heads (Ideational, Interpersonal, Textual). Keys and values clear instantly post-pass, enforcing an 𝒪(1) VRAM allocation boundary.</p>
+            <div class="img-container">
+                <img src="semiotic_attention_memory_lifecycle.png" alt="Attention Memory Lifecycle">
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 14: Terminal Vector Proximity Lookup</h2>
+            <p>Realization selects surface clause <em>w</em>* from candidate set <em>V</em><sub>L</sub> by minimizing Euclidean distance to the terminal target state:</p>
+            <div class="math-block">w* = argmin_{w ∈ V_L} ||f_w - z_terminal||₂</div>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 15: Co-Equal Multilingual Realisation</h2>
+            <p>Because trajectory states represent pure language-agnostic meaning deltas, identical terminal vectors project co-equally into English, Spanish, and French clause targets without translation intermediaries.</p>
+        </div>
+
+        <div class="slide">
+            <span class="division-tag">Division III: Realisation, Geometry & Convergence</span>
+            <h2>Slide 16: Empirical Convergence & Systemic Summary</h2>
+            <p>Over 25 training epochs, trajectory loss converges smoothly from L<sub>Δ</sub> = 0.3151 to 0.1218 with mean step displacement δ̄ = 1.0368.</p>
+            <div class="img-container">
+                <img src="sfl_loss_and_displacement_plot.png" alt="Loss and Displacement Plot">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const counterEl = document.getElementById('slideCounter');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateSlide() {
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === currentSlide);
+            });
+            counterEl.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateSlide();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                if (currentSlide < totalSlides - 1) changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) changeSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
